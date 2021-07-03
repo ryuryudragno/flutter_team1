@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "554997580843",
+    "project_id": "benessehackathon",
+    "storage_bucket": "benessehackathon.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:554997580843:android:f0b55497c33c9edc84d66e",
+        "android_client_info": {
+          "package_name": "com.example.benesse_hackathon"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "554997580843-8luj1a988vj93fu20e8mlv2m3tu6lh6b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPMJGyFB-SGLXZiJ6SCsVFheIytu_Aq8U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "554997580843-8luj1a988vj93fu20e8mlv2m3tu6lh6b.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "554997580843-k9nafj428h63ogrkcgn8s7sk4a90e54q.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.benesseHackathon"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
