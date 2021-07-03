@@ -19,43 +19,48 @@ class _PostPagePageState extends State<PostPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("投稿画面"),
+        title: Text("タイトル",style: TextStyle(
+          fontWeight: FontWeight.w700,
+        ),),
       ),
       body: Center(
-
-        child: Column(
-          children: <Widget>[
-            TextFormField(
-              decoration: InputDecoration(labelText: 'id'),
-              textInputAction: TextInputAction.next,
-              onChanged: (text) {
-                name = text;
-              },
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Container(
+            child: Column(
+              children: <Widget>[
+                TextFormField(
+                  decoration: InputDecoration(labelText: '名前'),
+                  textInputAction: TextInputAction.next,
+                  onChanged: (text) {
+                    name = text;
+                  },
+                ),
+                TextFormField(
+                  decoration: InputDecoration(labelText: '内容'),
+                  obscureText: false,
+                  onChanged: (text) {
+                    content = text;
+                  },
+                ),
+                RaisedButton(
+                  child: Text('Save-button'),
+                  onPressed: () async {
+                    // ドキュメント作成
+                    // final hobbyText = myController.text;
+                    // debugPrint(hobbyText);
+                    await Firestore.instance
+                        .collection('posts') // コレクションID
+                        .document() // ここは空欄だと自動でIDが付く
+                        .setData({
+                      'name': name,
+                      'content': content,
+                    }); // データ
+                  },
+                ),
+              ],
             ),
-            TextFormField(
-              controller: myController,
-              decoration: InputDecoration(labelText: 'password'),
-              obscureText: true,
-              onChanged: (text) {
-                content = text;
-              },
-            ),
-            RaisedButton(
-              child: Text('Save-button'),
-              onPressed: () async {
-                // ドキュメント作成
-                // final hobbyText = myController.text;
-                // debugPrint(hobbyText);
-                await Firestore.instance
-                    .collection('posts') // コレクションID
-                    .document() // ここは空欄だと自動でIDが付く
-                    .setData({
-                  'name': name,
-                  'content': content,
-                }); // データ
-              },
-            ),
-          ],
+          ),
         ),
 
         // child: TextField(
