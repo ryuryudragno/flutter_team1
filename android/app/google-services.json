@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "554997580843-hbdb2h6e0s9tk7rvqs3v2gii1ps8i906.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.benesse_hackathon",
+            "certificate_hash": "051372582aca655cd245cf3589b6f4eb6457e279"
+          }
+        },
+        {
           "client_id": "554997580843-8luj1a988vj93fu20e8mlv2m3tu6lh6b.apps.googleusercontent.com",
           "client_type": 3
         }

@@ -19,7 +19,7 @@ class _PostPagePageState extends State<PostPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("タイトル",style: TextStyle(
+        title: Text("投稿画面",style: TextStyle(
           fontWeight: FontWeight.w700,
         ),),
       ),
@@ -30,7 +30,7 @@ class _PostPagePageState extends State<PostPage> {
             child: Column(
               children: <Widget>[
                 TextFormField(
-                  decoration: InputDecoration(labelText: '名前'),
+                  decoration: InputDecoration(labelText: 'タイトル'),
                   textInputAction: TextInputAction.next,
                   onChanged: (text) {
                     name = text;

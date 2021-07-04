@@ -40,6 +40,18 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+		//以下,GoogleService-Info.plist内にあるREVERSED_CLIENT_IDキーを貼り付け
+				<string>com.googleusercontent.apps.・・・・・・・</string>
+			</array>
+		</dict>
+	</array>
 	<false/>
 </dict>
 </plist>
