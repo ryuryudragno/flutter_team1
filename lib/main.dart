@@ -19,8 +19,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return MaterialApp(
-      debugShowCheckedModeBanner: true,  // <- Debug の 表示を OFF
-
+      debugShowCheckedModeBanner: false,
       home: TestPage(),
     );
   }
@@ -47,11 +46,12 @@ class TestPage extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return Scaffold(
+
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-
+            Image.network('https://www.change-your-tomorrow.com/wp-content/uploads/2018/12/google-logo-eyecatch.png'),
             ButtonTheme(
               minWidth: 350.0,
               // height: 100.0,
@@ -120,7 +120,10 @@ class TestPage extends StatelessWidget {
               ),
             ),
 
-            Text('別のGoogleアカウントでログインしたい場合、一回ログアウトする必要がある。'),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text('別のGoogleアカウントでログインしたい場合、\n一回ログアウトする必要がある。'),
+            ),
 
           ],
         ),

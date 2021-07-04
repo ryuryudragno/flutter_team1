@@ -13,6 +13,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: _title,
       home: HomePage(user: user),
     );
@@ -22,6 +23,7 @@ class Home extends StatelessWidget {
 class HomePage extends StatefulWidget {
   final FirebaseUser user;
   HomePage({Key? key, required this.user}) : super(key: key);
+
   @override
   _HomePageState createState() => _HomePageState(user: user);
 }
@@ -32,11 +34,7 @@ class _HomePageState extends State<HomePage> {
   _HomePageState({Key? key, required this.user});
 
   int _selectedIndex = 0;
-  final List<Widget> _children = [
-    board(),
-    PostPage(),
-    Profile()
-  ];
+
   late TabController _tabController;
   static const _kTabPages = <Widget>[
     Center(child: Icon(Icons.cloud, size: 64.0, color: Colors.teal)),
@@ -49,26 +47,40 @@ class _HomePageState extends State<HomePage> {
     Tab(icon: Icon(Icons.forum), text: 'Tab3'),
   ];
 
+  // final List<Widget> _children = [
+  //   board(),
+  //   PostPage(),
+  //   Profile(user: user),
+  // ];
+
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
+      if(_selectedIndex == 0){
+        // Navigator.push(
+        //   context,
+        //   MaterialPageRoute(builder: (context) => Home(user: user)),
+        // );
+      }
+      if(_selectedIndex == 1){
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => PostPage(user:user)),
+        );
+      }
+      if(_selectedIndex == 2){
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => Profile(user: user,)),
+        );
+      }
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _children[_selectedIndex], // new
-      // body: Center(
-      //   child: Column(
-      //     mainAxisSize: MainAxisSize.min,
-      //     children: [
-      //       Text('ようこそ',
-      //           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-      //       Text(user.displayName),
-      //     ],
-      //   ),
-      // ),
+      body:  board(user: user), // new
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
@@ -93,50 +105,4 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-// class _BottomTabbarExampleState extends State<BottomTabbarExample>
-//     with SingleTickerProviderStateMixin {
-//   late TabController _tabController;
-//
-//   static const _kTabPages = <Widget>[
-//     Center(child: Icon(Icons.cloud, size: 64.0, color: Colors.teal)),
-//     Center(child: Icon(Icons.alarm, size: 64.0, color: Colors.cyan)),
-//     Center(child: Icon(Icons.forum, size: 64.0, color: Colors.blue)),
-//   ];
-//   static const _kTabs = <Tab>[
-//     Tab(icon: Icon(Icons.cloud), text: 'Tab1'),
-//     Tab(icon: Icon(Icons.alarm), text: 'Tab2'),
-//     Tab(icon: Icon(Icons.forum), text: 'Tab3'),
-//   ];
-//
-//   @override
-//   void initState() {
-//     super.initState();
-//     _tabController = TabController(
-//       length: _kTabPages.length,
-//       vsync: this,
-//     );
-//   }
-//
-//   @override
-//   void dispose() {
-//     _tabController.dispose();
-//     super.dispose();
-//   }
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       body: TabBarView(
-//         controller: _tabController,
-//         children: _kTabPages,
-//       ),
-//       bottomNavigationBar: Material(
-//         color: Colors.blue,
-//         child: TabBar(
-//           tabs: _kTabs,
-//           controller: _tabController,
-//         ),
-//       ),
-//     );
-//   }
-// }
+
